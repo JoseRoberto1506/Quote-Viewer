@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    AddFavStock
+{% endblock %}
+
+{% block main %}
+
+    <h2 class="text-center">Choose a stock to add to your Favorite List</h2>
+    <br>
+    <form action="/add-fav-stock" method="post">
+        <div class="mb-3">
+            <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="stock-symbol" name="symbol" placeholder="Stock symbol" type="text">
+        </div>
+        <button class="btn btn-primary" type="submit">Add to Favorite List</button>
+    </form>
+
+{% endblock %}

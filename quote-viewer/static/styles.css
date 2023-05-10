@@ -1,0 +1,18 @@
+/* Size for brand */
+nav .navbar-brand
+{
+    font-size: xx-large;
+}
+
+/* Colors for brand */
+nav .navbar-brand .brand
+{
+    color: white;
+    font-weight: bold;
+}
+
+thead .head
+{
+    background-color: #6c7ae0;
+    color: white;
+}

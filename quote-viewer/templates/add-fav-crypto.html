@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    AddFavCrypto
+{% endblock %}
+
+{% block main %}
+
+    <h2 class="text-center">Choose a cryptocurrency to add to your Favorite List</h2>
+    <br>
+    <form action="/add-fav-crypto" method="post">
+        <div class="mb-3">
+            <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="cryptocurrency-symbol" name="symbol" placeholder="Cryptocurrency symbol" type="text">
+        </div>
+        <button class="btn btn-primary" type="submit">Add to Favorite List</button>
+    </form>
+
+{% endblock %}

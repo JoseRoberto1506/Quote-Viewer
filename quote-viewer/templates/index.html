@@ -1,0 +1,70 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Favorites
+{% endblock %}
+
+{% block main %}
+    <div class="container text-center">
+        <table class="table table-striped table-borderless">
+            <h2 class="text-start">Stocks</h2>
+            <thead>
+                <tr  class="head">
+                    <th scope="col">Company</th>
+                    <th scope="col">Symbol</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Change</th>
+                    <th scope="col">% Change</th>
+                    <th scope="col">Market Cap</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for stock in fav_stocks %}
+                    <tr>
+                        <td>{{ stock[0] }}</td>
+                        <td>{{ stock[1] }}</td>
+                        <td>{{ stock[2] | usd }}</td>
+                        <td>{{ stock[3] | usd }}</td>
+                        <td>{{ stock[4] | percentage }}%</td>
+                        <td>{{ stock[5] | usd }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <br>
+
+    <div class="container text-center">
+        <table class="table table-striped table-borderless">
+            <thead>
+                <div class="text-start">
+                    <h2>Cryptocurrencies
+                </div>
+                <tr  class="head">
+                    <th scope="col">Name</th>
+                    <th scope="col">Symbol</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">24h %</th>
+                    <th scope="col">Market Cap</th>
+                    <th scope="col">Volume 24h</th>
+                    <th scope="col">Current Supply</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for cryptocurrency in fav_cryptos %}
+                    <tr>
+                        <td>{{ cryptocurrency[0] }}</td>
+                        <td>{{ cryptocurrency[1] }}</td>
+                        <td>{{ cryptocurrency[2] | usd }}</td>
+                        <td>{{ cryptocurrency[3] | percentage }}</td>
+                        <td>{{ cryptocurrency[4] | usd }}</td>
+                        <td>{{ cryptocurrency[5] | usd }}</td>
+                        <td>{{ cryptocurrency[6] | supply }} {{ cryptocurrency[1] }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+{% endblock %}

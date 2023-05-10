@@ -1,0 +1,8 @@
+os
+cs50
+flask
+flask_session
+requests
+werkzeug.security
+urllib.parse
+functools

@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    QuoteStock
+{% endblock %}
+
+{% block main %}
+
+    {% if stock %}
+        <div class="container text-center">
+            <table class="table table-striped table-borderless">
+                <thead>
+                    <tr class="head">
+                        <th scope="col">Company</th>
+                        <th scope="col">Symbol</th>
+                        <th scope="col">Price</th>
+                        <th scope="col">Change</th>
+                        <th scope="col">% Change</th>
+                        <th scope="col">Market Cap</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>{{ stock["name"] }}</td>
+                        <td>{{ stock["symbol"] }}</td>
+                        <td>{{ stock["price"] | usd }}</td>
+                        <td>{{ stock["change"] | usd }}</td>
+                        <td>{{ stock["changePercentage"] | percentage }}%</td>
+                        <td>{{ stock["marketCap"] | usd }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    {% endif %}
+    <br>
+    <br>
+
+    <form action="/stocks" method="post">
+        <div class="mb-3">
+            <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="stock-symbol" name="symbol" placeholder="Stock symbol" type="text">
+        </div>
+        <button class="btn btn-primary" type="submit">Quote</button>
+    </form>
+
+{% endblock %}

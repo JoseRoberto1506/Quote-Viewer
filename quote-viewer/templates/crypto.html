@@ -1,0 +1,47 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    QuoteCryptocurrency
+{% endblock %}
+
+{% block main %}
+
+    {% if cryptocurrency %}
+        <div class="container text-center">
+            <table class="table table-striped table-borderless">
+                <thead>
+                    <tr class="head">
+                        <th scope="col">Name</th>
+                        <th scope="col">Symbol</th>
+                        <th scope="col">Price</th>
+                        <th scope="col">24h %</th>
+                        <th scope="col">Market Cap</th>
+                        <th scope="col">Volume 24h</th>
+                        <th scope="col">Current Supply</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>{{ cryptocurrency["name"] }}</td>
+                        <td>{{ cryptocurrency["symbol"] }}</td>
+                        <td>{{ cryptocurrency["price"] | usd }}</td>
+                        <td>{{ cryptocurrency["24h"] | percentage }}%</td>
+                        <td>{{ cryptocurrency["marketCap"] | usd }}</td>
+                        <td>{{ cryptocurrency["volume"] | usd }}</td>
+                        <td>{{ cryptocurrency["currentSupply"] | supply }} {{ cryptocurrency["symbol"] }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    {% endif %}
+    <br>
+    <br>
+
+    <form action="/crypto" method="post">
+        <div class="mb-3">
+            <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="cryptocurrency-symbol" name="symbol" placeholder="Cryptocurrency symbol" type="text">
+        </div>
+        <button class="btn btn-primary" type="submit">Quote</button>
+    </form>
+
+{% endblock %}
